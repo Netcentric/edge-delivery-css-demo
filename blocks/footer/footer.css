@@ -70,6 +70,7 @@ footer {
         background: var(--clr-white);
         color: var(--clr-css-blue);
 
+        /* stylelint-disable-next-line no-descending-specificity */
         > div {
             width: min(var(--page-max-width), 100% - 2* var(--page-padding));
             margin-inline: auto;
@@ -101,10 +102,12 @@ footer {
                 aspect-ratio: auto 1 / 1;
             }
 
+            /* stylelint-disable-next-line no-descending-specificity */
             &:nth-child(2) a {
                 color: var(--clr-css-blue);
             }
 
+            /* stylelint-disable-next-line no-descending-specificity */
             li {
                 list-style: none;
             }
