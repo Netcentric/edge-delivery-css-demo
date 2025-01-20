@@ -77,7 +77,7 @@ footer {
             justify-content: space-between;
             gap: 32px;
 
-            @media (max-width: 667px) {
+            @media (width <= 667px) {
                 flex-direction: column;
                 align-items: center;
             }
@@ -88,7 +88,7 @@ footer {
             gap: 24px;
             align-items: center;
 
-            @media (max-width: 667px) {
+            @media (width <= 667px) {
                 &:nth-child(2) {
                     flex-direction: column;
                     gap: 12px;
