@@ -107,7 +107,7 @@ export default async function decorate(block) {
   const navTools = nav.querySelector('.nav-tools');
   const hamburger = document.createElement('button');
   hamburger.classList.add('nav-toggle');
-  hamburger.innerHTML = '<div class="nav-toggle__box"><div class="nav-toggle__stroke"></div><div class="nav-toggle__stroke"></div><div class="nav-toggle__stroke"></div></div>';
+  hamburger.innerHTML = '<div class="nav-toggle-box"><div class="nav-toggle-stroke"></div><div class="nav-toggle-stroke"></div><div class="nav-toggle-stroke"></div></div>';
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   navTools.append(hamburger);
 
