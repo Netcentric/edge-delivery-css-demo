@@ -230,6 +230,10 @@ button {
     margin-inline: auto;
     max-width: min(940px, 80%);
     width: min(var(--page-max-width), 100% - 2* var(--page-padding));
+
+    @media (width <= 667px) {
+        max-width: unset;
+    }
 }
 
 .media {
