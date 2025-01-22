@@ -1,0 +1,174 @@
+.vouchers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 24px;
+    padding-block: 40px 20px;
+    max-width: min(var(--page-max-width), 100% - var(--page-padding));
+    width: fit-content;
+    margin: auto;
+
+    @media (width <= 1024px) {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px 16px;
+        overflow-x: scroll;
+        width: 100%;
+        max-width: unset;
+        padding-inline: var(--page-padding) calc(var(--page-padding) + 48px);
+    }
+
+    @media (width <= 1024px) {
+        & >*:nth-child(n+6):nth-child(-n+10) {
+        translate:48px
+    }
+    }
+
+    .voucher-item {
+        --opacity: 1;
+        --bg: var(--clr-css-pink);
+        --bg-hover: var(--clr-css-pink-1);
+        --shadow-y: 10px;
+        --shadow-blur: 12px;
+
+        color: #fff;
+        min-width: 212px;
+        max-width: 340px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--font-voucher);
+        font-weight: 300;
+        text-align: center;
+        transform: rotate(0);
+        transition: translate .2s, scale .2s;
+        pointer-events: none;
+
+        @media (width <= 1024px) {
+            min-height: 130px;
+            width: 212px;
+        }
+
+        &::before,
+        &::after {
+            --rotation: -4deg;
+
+            position: absolute;
+            content: "";
+            background: none;
+            box-shadow: 0 var(--shadow-y) var(--shadow-blur) #00000080;
+            height: 10px;
+            left: 12px;
+            bottom: 12px;
+            width: 50%;
+            z-index: -1;
+            transform: skew(var(--rotation)) rotate(var(--rotation));
+
+            @media (width <= 1024px) {
+                --rotation: -6deg;
+            }
+        }
+
+        &::after {
+            --rotation: 4deg;
+
+            left: auto;
+            right: 12px;
+        }
+
+        .voucher-svg {
+            position: relative;
+            max-height: fit-content;
+            height: auto;
+            filter: drop-shadow(0 4px 4px rgb(0 0 0 / 25%));
+
+            .voucher-svg-bg-color {
+                fill: var(--bg);
+            }
+
+            .vocuher-svg-bg-pattern {
+                opacity: var(--opacity);
+            }
+        }
+    }
+
+    .voucher-item-pink {
+        --bg: var(--clr-css-pink);
+        --bg-hover: var(--clr-css-pink-1);
+        --opacity: .1
+    }
+
+    .voucher-item-yellow {
+        --bg: var(--clr-css-yellow);
+        --bg-hover: var(--clr-css-yellow-1);
+        --opacity: .2
+    }
+
+    .voucher-item-green {
+        --bg: var(--clr-css-green);
+        --bg-hover: var(--clr-css-green-1);
+        --opacity: .1
+    }
+
+    .voucher-item-white {
+        --bg: var(--clr-css-beige);
+        --bg-hover: var(--clr-css-beige-1);
+        --opacity: 0.8;
+
+        color: var(--clr-css-cyan);
+    }
+
+    .voucher-item-rotate-l {
+        transform: rotate(-3deg)
+    }
+
+    .voucher-item-rotate-r {
+        transform: rotate(3deg)
+    }
+
+    .voucher-item-text {
+        position: absolute;
+        width: calc(100% - 1em);
+    }
+
+    .voucher-item-text-original {
+        position: relative;
+        top: 0;
+        display: block;
+        filter: blur(0);
+        opacity: 1;
+        transition: filter .3s, opacity .3s;
+    }
+
+    .voucher-item-text-hover {
+        position: absolute;
+        display: block;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        filter: blur(3px);
+        scale: .7;
+        transition: filter .3s, opacity .3s, scale .3s;
+    }
+
+    .voucher-link:hover {
+        .voucher-item {
+            --shadow-y: 13px;
+            --shadow-blur: 14px;
+
+            translate: 0 -2px;
+            scale: 1.005;
+        }
+
+        .voucher-item-text-original {
+            opacity: 0;
+            filter: blur(3px);
+        }
+
+        .voucher-item-text-hover {
+            opacity: 1;
+            filter: blur(0);
+            scale: 1;
+        }
+    }
+}

@@ -187,9 +187,8 @@ p+p {
     margin-top: 2rem;
 }
 
-
-main > div {
-    margin: 40px 16px;
+strong {
+    font-weight: 600;
 }
 
 input,
@@ -197,6 +196,50 @@ textarea,
 select,
 button {
     font: inherit;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-huge * {
+    font-size: var(--font-huge);
+}
+
+.text-big * {
+    font-size: var(--font-big);
+}
+
+.space-small {
+    margin-bottom: var(--space-small);
+}
+
+.space-medium {
+    margin-bottom: var(--space-medium);
+}
+
+.space-large {
+    margin-bottom: var(--space-large);
+}
+
+.text {
+    margin-inline: auto;
+    max-width: min(940px, 80%);
+    width: min(var(--page-max-width), 100% - 2* var(--page-padding));
+
+    @media (width <= 667px) {
+        max-width: unset;
+    }
+}
+
+.media {
+    margin-inline: auto;
+    max-width: 940px;
+    width: min(var(--page-max-width), 100% - 2* var(--page-padding));
 }
 
 /* links */
@@ -240,6 +283,10 @@ button:focus {
     box-shadow: 0 0 0 .125rem var(--clr-css-blue-1);
 }
 
+main {
+    min-height: 100vh;
+}
+
 main img {
     max-width: 100%;
     width: auto;
@@ -255,25 +302,4 @@ main img {
 .icon img {
     height: 100%;
     width: 100%;
-}
-
-/* sections */
-main > .section {
-    margin: 40px 0;
-}
-
-main > .section > div {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 24px;
-}
-
-main > .section:first-of-type {
-    margin-top: 0;
-}
-
-@media (width >= 900px) {
-    main > .section > div {
-        padding: 0 32px;
-    }
 }
