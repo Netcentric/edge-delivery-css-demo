@@ -17,7 +17,7 @@
   }
 }
 
-.cloud-image__header {
+.cloud-image-header {
   position: absolute;
   width: 100%;
   top: 50%;
@@ -28,7 +28,7 @@
 
 }
 
-.cloud-image__picture {
+.cloud-image-picture {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,21 +47,26 @@
     filter: blur(10px);
     opacity: 0;
   }
+
   6% {
     opacity: 1;
   }
+
   13% {
     filter: blur(0);
   }
+
   25% {
     filter: blur(0);
     opacity: 1;
   }
+
   33% {
     transform: scale(1);
     filter: blur(15px);
     opacity: 0;
   }
+  
   100% {
     opacity: 0;
   }

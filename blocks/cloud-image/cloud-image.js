@@ -4,7 +4,7 @@ function addClassToDivsWithPicture() {
     const childDivs = cloudImage.querySelectorAll(':scope > div');
     if (childDivs.length >= 2) {
       const wrapper = document.createElement('div');
-      wrapper.classList.add('cloud-image__header', 'text-center');
+      wrapper.classList.add('cloud-image-header', 'text-center');
       childDivs[0].before(wrapper);
       wrapper.appendChild(childDivs[0]);
       wrapper.appendChild(childDivs[1]);
@@ -12,7 +12,7 @@ function addClassToDivsWithPicture() {
 
     childDivs.forEach((div) => {
       if (div.querySelector('picture')) {
-        div.classList.add('cloud-image__picture');
+        div.classList.add('cloud-image-picture');
       }
     });
   });
