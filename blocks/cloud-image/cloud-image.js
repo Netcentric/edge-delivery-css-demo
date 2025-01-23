@@ -47,27 +47,25 @@ function setDataAttributes() {
 function positionImageInTheCloud() {
   const cloudImgContainer = document.querySelector('.cloud-image-wrapper');
   const cloudImagePictureElements = document.querySelectorAll('.cloud-image__picture');
-  console.log(cloudImgContainer.getBoundingClientRect());
 
-  const { 
+  const {
     width: containerWidth,
-    height: containerHeight 
+    height: containerHeight
   } = cloudImgContainer.getBoundingClientRect();
-  console.log(containerWidth,);
 
-  cloudImagePictureElements.forEach(element => {
+  cloudImagePictureElements.forEach((element) => {
     const img = element.querySelector('img');
-      if (!img) return;
-      const { width: imgWidth, height: imgHeight } = img;
-      const elementStyleTop = `${element.dataset.left * (1 - imgWidth / containerWidth)}`;
-      const elementStyleLeft = `${element.dataset.top * (1 - imgHeight / containerHeight) * 0.96}`;
-      element.style.left = (elementStyleLeft > 60) ? `${60}%` : `${elementStyleLeft}%`;
-      element.style.top = (elementStyleTop > 57) ? `${57}%` : `${elementStyleTop}%`;
-      element.style.animationDelay = `${element.dataset.delay - 36}s`;
+    if (!img) return;
+    const { width: imgWidth, height: imgHeight } = img;
+    const elementStyleTop = `${element.dataset.left * (1 - imgWidth / containerWidth)}`;
+    const elementStyleLeft = `${element.dataset.top * (1 - imgHeight / containerHeight) * 0.96}`;
+    element.style.left = (elementStyleLeft > 60) ? `${60}%` : `${elementStyleLeft}%`;
+    element.style.top = (elementStyleTop > 57) ? `${57}%` : `${elementStyleTop}%`;
+    element.style.animationDelay = `${element.dataset.delay - 36}s`;
   });
 }
 
-export { positionImageInTheCloud };
+export default { positionImageInTheCloud };
 
 addClassToDivsWithPicture();
 setDataAttributes();
