@@ -21,17 +21,17 @@ function addClassToDivsWithPicture() {
 function setDataAttributes() {
   // Arrays for top and left values calculation (mocked from the original site that seems random)
   const topValues = [
-    20, 0, 50, 70, 100, 60, 90, 20, 0, 40, 
-    90, 80, 60, 60, 90, 10, 40, 50, 80
+    20, 0, 50, 70, 100, 60, 90, 20, 0, 40,
+    90, 80, 60, 60, 90, 10, 40, 50, 80,
   ];
   const leftValues = [
-    50, 90, 60, 80, 30, 80, 0, 20, 60, 90, 
-    10, 70, 100, 30, 90, 0, 50, 90, 90, 30
+    50, 90, 60, 80, 30, 80, 0, 20, 60, 90,
+    10, 70, 100, 30, 90, 0, 50, 90, 90, 30,
   ];
   const delayValues = [
     4, 5, 2, 34, 3, 7, 8,
-     9, 15, 15, 12, 22, 20, 26, 33, 31, 25, 27
-    ];
+    9, 15, 15, 12, 22, 20, 26, 33, 31, 25, 27,
+  ];
   const cloudImagePictureElements = document.querySelectorAll('.cloud-image__picture');
 
   cloudImagePictureElements.forEach((div, index) => {
@@ -40,7 +40,7 @@ function setDataAttributes() {
     const delayIndex = index % delayValues.length;
     div.setAttribute('data-left', leftValues[leftIndex]);
     div.setAttribute('data-top', topValues[topIndex]);
-    div.setAttribute('data-delay', delayValues[index]);
+    div.setAttribute('data-delay', delayValues[delayIndex]);
   });
 }
 
@@ -49,7 +49,10 @@ function positionImageInTheCloud() {
   const cloudImagePictureElements = document.querySelectorAll('.cloud-image__picture');
   console.log(cloudImgContainer.getBoundingClientRect());
 
-  const {width: containerWidth, height: containerHeight} = cloudImgContainer.getBoundingClientRect();
+  const { 
+    width: containerWidth,
+    height: containerHeight 
+  } = cloudImgContainer.getBoundingClientRect();
   console.log(containerWidth,);
 
   cloudImagePictureElements.forEach(element => {
