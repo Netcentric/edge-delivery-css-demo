@@ -50,7 +50,7 @@ function positionImageInTheCloud() {
 
   const {
     width: containerWidth,
-    height: containerHeight
+    height: containerHeight,
   } = cloudImgContainer.getBoundingClientRect();
 
   cloudImagePictureElements.forEach((element) => {
