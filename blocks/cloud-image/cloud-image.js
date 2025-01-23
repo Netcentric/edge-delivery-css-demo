@@ -1,20 +1,20 @@
 function addClassToDivsWithPicture() {
   const cloudImageElements = document.querySelectorAll('.cloud-image');
-  cloudImageElements.forEach(cloudImage => {
-      const childDivs = cloudImage.querySelectorAll(':scope > div');
-      if (childDivs.length >= 2) {
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('cloud-image__header', 'text-center');
-        childDivs[0].before(wrapper);
-        wrapper.appendChild(childDivs[0]);
-        wrapper.appendChild(childDivs[1]);
+  cloudImageElements.forEach((cloudImage) => {
+    const childDivs = cloudImage.querySelectorAll(':scope > div');
+    if (childDivs.length >= 2) {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('cloud-image__header', 'text-center');
+      childDivs[0].before(wrapper);
+      wrapper.appendChild(childDivs[0]);
+      wrapper.appendChild(childDivs[1]);
     }
 
-      childDivs.forEach(div => {
-          if (div.querySelector('picture')) {
-              div.classList.add('cloud-image__picture');
-          }
-      });
+    childDivs.forEach(div => {
+      if (div.querySelector('picture')) {
+        div.classList.add('cloud-image__picture');
+      }
+    });
   });
 }
 
@@ -26,12 +26,12 @@ function setDataAttributes() {
   const cloudImagePictureElements = document.querySelectorAll('.cloud-image__picture');
 
   cloudImagePictureElements.forEach((div, index) => {
-      const leftIndex = index % leftValues.length;
-      const topIndex = index % topValues.length;
-      const delayIndex = index % delayValues.length;
-      div.setAttribute('data-left', leftValues[leftIndex]);
-      div.setAttribute('data-top', topValues[topIndex]);
-      div.setAttribute('data-delay', delayValues[index]);
+    const leftIndex = index % leftValues.length;
+    const topIndex = index % topValues.length;
+    const delayIndex = index % delayValues.length;
+    div.setAttribute('data-left', leftValues[leftIndex]);
+    div.setAttribute('data-top', topValues[topIndex]);
+    div.setAttribute('data-delay', delayValues[index]);
   });
 }
 
