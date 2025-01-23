@@ -10,7 +10,7 @@ function addClassToDivsWithPicture() {
       wrapper.appendChild(childDivs[1]);
     }
 
-    childDivs.forEach(div => {
+    childDivs.forEach((div) => {
       if (div.querySelector('picture')) {
         div.classList.add('cloud-image__picture');
       }
@@ -20,9 +20,18 @@ function addClassToDivsWithPicture() {
 
 function setDataAttributes() {
   // Arrays for top and left values calculation (mocked from the original site that seems random)
-  const topValues = [20, 0, 50, 70, 100, 60, 90, 20, 0, 40, 90, 80, 60, 60, 90, 10, 40, 50, 80];
-  const leftValues = [50, 90, 60, 80, 30, 80, 0, 20, 60, 90, 10, 70, 100, 30, 90, 0, 50, 90, 90, 30];
-  const delayValues = [4, 5, 2, 34, 3, 7, 8, 9, 15, 15, 12, 22, 20, 26, 33, 31, 25, 27];
+  const topValues = [
+    20, 0, 50, 70, 100, 60, 90, 20, 0, 40, 
+    90, 80, 60, 60, 90, 10, 40, 50, 80
+  ];
+  const leftValues = [
+    50, 90, 60, 80, 30, 80, 0, 20, 60, 90, 
+    10, 70, 100, 30, 90, 0, 50, 90, 90, 30
+  ];
+  const delayValues = [
+    4, 5, 2, 34, 3, 7, 8,
+     9, 15, 15, 12, 22, 20, 26, 33, 31, 25, 27
+    ];
   const cloudImagePictureElements = document.querySelectorAll('.cloud-image__picture');
 
   cloudImagePictureElements.forEach((div, index) => {
