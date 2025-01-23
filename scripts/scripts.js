@@ -12,6 +12,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import { positionImageInTheCloud } from '../blocks/cloud-image/cloud-image.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -124,6 +125,8 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
+  // Executing function that manipulate position upon loading the page.
+  positionImageInTheCloud();
 }
 
 loadPage();
