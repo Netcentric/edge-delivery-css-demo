@@ -6,7 +6,7 @@ import GiftCardInsideLeftSvg from './parts/gift-card-inside-left-svg.js';
 import GiftCardCenterSvg from './parts/gift-card-center-svg.js';
 
 export default function GiftCardTemplate({
-  to, from, how, message, signature,
+  to, how, message, signature,
 }) {
   return `<div class="card-scroller">
     <button class="gift-card" type="button">
