@@ -12,7 +12,7 @@ function addClassToDivsWithPicture() {
 
     childDivs.forEach((div) => {
       if (div.querySelector('picture')) {
-        div.classList.add('cloud-image-picture');
+        div.classList.add('cloud-image-element');
       }
     });
   });
@@ -32,7 +32,7 @@ function setDataAttributes() {
     4, 5, 2, 34, 3, 7, 8,
     9, 15, 15, 12, 22, 20, 26, 33, 31, 25, 27,
   ];
-  const cloudImagePictureElements = document.querySelectorAll('.cloud-image-picture');
+  const cloudImagePictureElements = document.querySelectorAll('.cloud-image-element');
 
   cloudImagePictureElements.forEach((div, index) => {
     const leftIndex = index % leftValues.length;
@@ -46,7 +46,7 @@ function setDataAttributes() {
 
 function positionImageInTheCloud() {
   const cloudImgContainer = document.querySelector('.cloud-image-wrapper');
-  const cloudImagePictureElements = document.querySelectorAll('.cloud-image-picture');
+  const cloudImagePictureElements = document.querySelectorAll('.cloud-image-element');
 
   const {
     width: containerWidth,
