@@ -1,0 +1,71 @@
+.cloud-image-wrapper {
+  height: 100vh;
+  position: relative;
+
+  .cloud-image {
+    height: 100%;
+    
+    & h1:first-of-type {
+      font-size: clamp(2rem, 7vw + .25rem, 5.625rem);
+    }
+
+    .icon.icon-logo-big {
+      height: 100px;
+      width: 140px;
+    }
+    
+    .cloud-image-header {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      z-index: 1;
+    }
+    
+    .cloud-image-element {
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 60vw;
+      max-height: 40vh;
+      animation: cloud 36s infinite;
+      animation-delay: 0s;
+      opacity: 0;
+      z-index: 0;
+    }
+  }
+}
+
+/* Keyframe cloud animation */
+@keyframes cloud {
+  0% {
+    transform: scale(0.1);
+    filter: blur(10px);
+    opacity: 0;
+  }
+
+  6% {
+    opacity: 1;
+  }
+
+  13% {
+    filter: blur(0);
+  }
+
+  25% {
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  33% {
+    transform: scale(1);
+    filter: blur(15px);
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 0;
+  }
+}
