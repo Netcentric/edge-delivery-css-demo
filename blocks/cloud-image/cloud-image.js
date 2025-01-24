@@ -30,7 +30,6 @@ function addClassToDivsWithText() {
     });
   });
 }
-
 function setDataAttributes() {
   // Arrays for top and left values calculation (mocked from the original site that seems random)
   const topValues = [
