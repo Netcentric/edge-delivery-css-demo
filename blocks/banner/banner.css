@@ -1,0 +1,43 @@
+.banner {
+    background: var(--clr-white);
+    color: var(--clr-css-cyan);
+    padding-inline: var(--page-padding);
+
+    > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon {
+        flex-shrink: 0;
+        height: unset;
+        width: unset;
+
+        img {
+            height: 20px;
+            width: auto;
+
+            @media (width >= 667px) {
+                height: 16px;
+            }
+        }
+    }
+
+    h2 {
+        --border-padding: 16px;
+        
+        font-size: var(--font-banner);
+        font-weight: 300;
+        margin-block: 15px;
+        margin-left: var(--border-padding);
+        padding-left: var(--border-padding);
+        border-left: 2px solid var(--clr-css-cyan);
+
+        @media (width >= 667px) {
+            --border-padding: 8px;
+            
+            margin-block: 12px;
+        }
+    }
+}
