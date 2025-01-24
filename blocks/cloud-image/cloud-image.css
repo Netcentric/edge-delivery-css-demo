@@ -53,6 +53,7 @@
     animation: wobble  36s infinite;
     opacity: 0;
     z-index: 0;
+
     p {
       font-size: clamp(2rem, 3.5vw, 3.5rem);
     }
