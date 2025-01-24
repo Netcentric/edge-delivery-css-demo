@@ -12,6 +12,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import positionImageInTheCloud from '../blocks/cloud-image/cloud-image.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -80,7 +81,6 @@ async function loadEager(doc) {
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
-
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
@@ -89,6 +89,11 @@ async function loadEager(doc) {
   } catch (e) {
     // do nothing
   }
+  /**
+ * Executing function that manipulate position of the
+ * cloud image block upon loading the page.
+ */
+  positionImageInTheCloud();
 }
 
 /**
