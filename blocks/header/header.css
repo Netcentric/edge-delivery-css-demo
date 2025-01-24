@@ -95,6 +95,10 @@ header {
     .nav-cta {
         margin-left: auto;
 
+        .nav-cta-hide & {
+            display: none;
+        }
+
 
         @media (width <= 667px) {
             .button-container a {
