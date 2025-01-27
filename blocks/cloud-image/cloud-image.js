@@ -18,14 +18,26 @@ function addClassToDivsWithPicture() {
   });
 }
 
+function addClassToDivsWithText() {
+  const cloudImageElementsWithText = document.querySelectorAll('.cloud-image-text');
+  cloudImageElementsWithText.forEach((cloudImageText) => {
+    const childDivs = cloudImageText.querySelectorAll(':scope > div');
+
+    childDivs.forEach((div) => {
+      if (!div.querySelector('picture')) {
+        div.classList.add('cloud-image-text-element');
+      }
+    });
+  });
+}
 function setDataAttributes() {
   // Arrays for top and left values calculation (mocked from the original site that seems random)
   const topValues = [
     20, 0, 50, 70, 100, 60, 90, 20, 0, 40,
-    90, 80, 60, 60, 90, 10, 40, 50, 80,
+    90, 80, 60, 60, 90, 10, 40, 50, 80, 100,
   ];
   const leftValues = [
-    50, 90, 60, 80, 30, 80, 0, 20, 60, 90,
+    50, 90, 60, 80, 30, 80, 0, 20, 60, 90, 100,
     10, 70, 100, 30, 90, 0, 50, 90, 90, 30,
   ];
   const delayValues = [
@@ -33,8 +45,18 @@ function setDataAttributes() {
     9, 15, 15, 12, 22, 20, 26, 33, 31, 25, 27,
   ];
   const cloudImagePictureElements = document.querySelectorAll('.cloud-image-element');
+  const cloudImageTextElements = document.querySelectorAll('.cloud-image-text-element');
 
   cloudImagePictureElements.forEach((div, index) => {
+    const leftIndex = index % leftValues.length;
+    const topIndex = index % topValues.length;
+    const delayIndex = index % delayValues.length;
+    div.setAttribute('data-left', leftValues[leftIndex]);
+    div.setAttribute('data-top', topValues[topIndex]);
+    div.setAttribute('data-delay', delayValues[delayIndex]);
+  });
+
+  cloudImageTextElements.forEach((div, index) => {
     const leftIndex = index % leftValues.length;
     const topIndex = index % topValues.length;
     const delayIndex = index % delayValues.length;
@@ -47,18 +69,27 @@ function setDataAttributes() {
 function positionImageInTheCloud() {
   const cloudImgContainer = document.querySelector('.cloud-image-wrapper');
   const cloudImagePictureElements = document.querySelectorAll('.cloud-image-element');
+  const cloudImageTextElements = document.querySelectorAll('.cloud-image-text-element');
 
   const {
-    width: containerWidth,
-    height: containerHeight,
+    width: ImgContainerWidth,
+    height: ImgContainerHeight,
   } = cloudImgContainer.getBoundingClientRect();
 
   cloudImagePictureElements.forEach((element) => {
     const img = element.querySelector('img');
     if (!img) return;
     const { width: imgWidth, height: imgHeight } = img;
-    const elementStyleTop = `${element.dataset.left * (1 - imgWidth / containerWidth)}`;
-    const elementStyleLeft = `${element.dataset.top * (1 - imgHeight / containerHeight) * 0.96}`;
+    const elementStyleTop = `${element.dataset.left * (1 - imgWidth / ImgContainerWidth)}`;
+    const elementStyleLeft = `${element.dataset.top * (1 - imgHeight / ImgContainerHeight) * 0.96}`;
+    element.style.left = (elementStyleLeft > 60) ? `${60}%` : `${elementStyleLeft}%`;
+    element.style.top = (elementStyleTop > 57) ? `${57}%` : `${elementStyleTop}%`;
+    element.style.animationDelay = `${element.dataset.delay - 36}s`;
+  });
+
+  cloudImageTextElements.forEach((element) => {
+    const elementStyleTop = `${100 - element.dataset.left}`;
+    const elementStyleLeft = `${100 - element.dataset.top}`;
     element.style.left = (elementStyleLeft > 60) ? `${60}%` : `${elementStyleLeft}%`;
     element.style.top = (elementStyleTop > 57) ? `${57}%` : `${elementStyleTop}%`;
     element.style.animationDelay = `${element.dataset.delay - 36}s`;
@@ -68,4 +99,5 @@ function positionImageInTheCloud() {
 export default positionImageInTheCloud;
 
 addClassToDivsWithPicture();
+addClassToDivsWithText();
 setDataAttributes();
