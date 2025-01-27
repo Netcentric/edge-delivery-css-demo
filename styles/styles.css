@@ -117,6 +117,10 @@
     font-synthesis: none!important
 }
 
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
 a {
     color: inherit
 }

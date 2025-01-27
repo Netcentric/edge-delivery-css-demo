@@ -1,0 +1,144 @@
+@import url("./gift-card.css");
+
+.voucher-form {
+    margin-bottom: 64px;
+
+    @media (width <= 667px) {
+        display: flex;
+        flex-direction: column;
+        min-height: 65vh;
+    }
+
+    .voucher-form-header {
+        position: absolute;
+        left: 50%;
+        width: fit-content;
+        top: 60px;
+        transform: translate(-50%);
+
+        @media (width <= 667px) {
+            top: 88px;
+        }
+
+        .icon-logo-big {
+            width: 140px;
+            height: 100px;
+
+            @media (width <= 667px) {
+                width: 120px;
+                height: auto;
+            }
+        }
+    }
+
+    .voucher-form-step {
+        display: none;
+    }
+
+    .voucher-form-step-active {
+        display: block;
+    }
+
+    .voucher-form-step-counter {
+        text-align: center;
+        font-size: var(--font-small);
+
+        @media (width <= 667px) {
+            margin-top: 40px;
+        }
+    }
+
+    .voucher-form-form {
+        width: min(var(--page-max-width), 100% - 2* var(--page-padding));
+        margin-inline: auto;
+    }
+
+    .voucher-form-actions {
+        display: flex;
+        justify-content: space-between;
+        width: min(100%, 540px);
+        margin-inline: auto;
+        margin-top: 16px;
+
+        @media (width <= 667px) {
+            margin-top: auto;
+            flex-direction: column-reverse;
+            gap: 24px;
+            align-items: center;
+        }
+
+        button[disabled] {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        .voucher-form-prev {
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            background-color: unset;
+            font-weight: unset;
+            font-size: unset;
+            border-radius: unset;
+            padding: 0;
+
+            &:hover {
+                box-shadow: unset;
+            }
+        }
+    }
+
+    label {
+        display: block;
+        text-align: center;
+        font-size: var(--font-h2);
+        min-height: calc(var(--font-h2)* 2.4);
+        margin-block: .3em;
+        font-weight: inherit;
+
+        @media (width <= 667px) {
+            font-size: 1.25rem;
+        }
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    input,
+    textarea {
+        display: block;
+        background: none;
+        color: var(--clr-white);
+        outline: none;
+        font-size: var(--font-paragraph);
+        text-align: center;
+        padding: 1em .5em;
+        resize: none;
+        caret-color: #fff;
+        width: min(100%, 540px);
+        margin-inline: auto;
+        position: relative;
+        border: 1px solid var(--clr-white);
+        border-radius: 7px;
+
+        &:focus-within {
+            outline: 2px solid var(--clr-white)
+        }
+
+        &::placeholder {
+            color: var(--clr-white);
+            opacity: .7
+        }
+    }
+
+    .field-wrapper + .field-wrapper {
+        margin-top: 16px;
+    }
+}
