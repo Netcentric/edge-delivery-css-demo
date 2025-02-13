@@ -1,9 +1,9 @@
-# Your Project's Title...
-Your project's description...
+# CSS Demo
+Edge Delivery Demo of https://zeitschenken.css.ch/.
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--edge-delivery-css-demo--netcentric.aem.page/
+- Live: https://main--edge-delivery-css-demo--netcentric.aem.live/
 
 ## Documentation
 
